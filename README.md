@@ -9,7 +9,7 @@ To see our actual project Github repository, visit: https://github.com/nichkho/I
 
 To see our live website, visit: https://hinanawits.github.io/DSC-180B-Presentation-Website/
 
-To use our original infection estimator website (working prototype), visit: https://infection-risk-app.herokuapp.com/
+To use our original infection estimator application (working prototype), visit: https://infection-risk-app.herokuapp.com/
 
 
 
@@ -18,4 +18,4 @@ To use our original infection estimator website (working prototype), visit: http
 
 
 
-This website is developed by Zhexu Li, the original infection estimator website (working prototype) is developed and updated by Zhexu Li, Nicholas Kho and Etienne Doidic. 
+This website is developed by Zhexu Li, the original infection estimator application (working prototype) is developed and updated by Zhexu Li, Nicholas Kho and Etienne Doidic. 
