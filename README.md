@@ -8,6 +8,7 @@ In this project, We propose an application which estimates infection risk of COV
 To see our actual project Github repository, visit: https://github.com/nichkho/Infection-Risk-App
 
 To see our live website, visit: https://hinanawits.github.io/DSC-180B-Presentation-Website/
+
 To use our infection estimator (working prototype), visit: https://infection-risk-app.herokuapp.com/
 
 
