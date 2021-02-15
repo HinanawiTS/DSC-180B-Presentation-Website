@@ -19,3 +19,4 @@ To use our original infection estimator application (working prototype), visit: 
 
 
 This website is developed by Zhexu Li, the original infection estimator application (working prototype) is developed and updated by Zhexu Li, Nicholas Kho and Etienne Doidic. 
+ 
