@@ -18,3 +18,4 @@ To use our infection estimator (working prototype), visit: https://infection-ris
 
 
 
+This website is developed by Zhexu Li, the infection estimator website (working prototype) is developed and updated by Zhexu Li, Nicholas Kho and Etienne Doidic. 
