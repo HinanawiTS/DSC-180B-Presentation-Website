@@ -14,8 +14,8 @@
 	
 	
 	
-  <script src = ""></script>
-	<script src = ""></script>
+	<script src="https://code.highcharts.com/highcharts.js"></script>
+	
 </head>
 <body>
 	
@@ -42,20 +42,120 @@
 	<hr style = "height:2px; border-width:0; color: blue; background-color: blue">
     <section>
     
-		<section id = "Website" >
+	<section id = "Website" >
     
     
     
     
     <h2 style = "text-align: center; font-family: Arial; font-weight: bold">Resulting Application</h2>
-    <p>Insert image and loads the actual application inside the section using sframe, </p>
+	<div align = "left" style = "height: 100%; width: 40%; float: left;">
+    <iframe id = "app" src = "http://127.0.0.1:8050/" style = "
+	
+	width: 100%;
+	height: 100vh;" sandbox = "allow-scripts allow-same-origin">
+	</iframe>
+	</div>
+	<div style = "height: 100%; width: 57%; float: right;">
+		<h3 style = "font-family: Arial;">Visualization and Comparison</h3>
+		<script>
+			var dataset = {"act": [], "rm": [], "ti": [], "occupants": [], "masks": [], "ir": [], "num": []}
+
+			var comnumber = 0
+
+			window.addEventListener("message", (event) => {
+				data = JSON.parse(event.data.replace(/'/g,"\""))
+				console.log(data)
+
+				dataset.act.push(data.act)
+				dataset.rm.push(data.rm)
+				dataset.ti.push(data.ti)
+				dataset.occupants.push(data.occupants)
+				dataset.masks.push(data.masks)
+				
+				dataset.ir.push(data.ir)
+	
+				comnumber = comnumber + 1
+				dataset.num.push(comnumber)
+				stack = new Highcharts.chart('fs', {
+			chart: {
+				type: 'column',
+				renderTo: "fs"
+			},
+			title: {
+				text: 'Selected Infection Risks'
+			},				
+			xAxis: {
+				categories: dataset.num, 
+				title: {
+
+					text: "Number of Trial"
+				}
+			},
+
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Infection Risks (%)'
+				}
+			},
+			tooltip: {
+        		formatter: function() {
+					num = this.x
+					
+					
+					
+					
+					
+					ks = ""
+					if (dataset.masks[num - 1] == 1) {
+
+						ks = "With Masks"
+
+					
+					} else {
+						ks = "Without Masks"
+					}
+
+					return "Trial: " + num 
+					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
+
+					+ "<br />" + "Activity: " + (dataset.act[num - 1])
+
+					+ "<br />" + "Time: " + (dataset.ti[num - 1])
+					+ "<br />" + "Occupancy: " + (dataset.occupants[num - 1])
+
+					+ "<br />" + ks
+					+ "<br />" + "Estimated Infection Risks: " + (this.y) + "%"
+				}
+    		},
+			legend: {
+				reversed: true
+			},
+			plotOptions: {
+				series: {
+				}
+			},
+			series: [{
+				name: 'numbers',
+	
+				data: dataset.ir
+			
+			}],
+		})
+
+			}, false);
+
+
+		</script>
+		<div class = "chart1" id = "fs"></div>
+	</div>
     </section>
-	    
     
 	
 	
 	
-	<hr style = "height:2px; border-width:0; color: blue; background-color: blue">
+	
+	<script src = "highchart_chart.js"></script>
 </body>
   
   
