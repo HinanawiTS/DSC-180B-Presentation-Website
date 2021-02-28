@@ -9,7 +9,7 @@
 	<title>Infection Risk Estimator</title>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Paytone+One&display=swap" rel = "stylesheet" />
 	<link href = "dashboard.css" rel = "stylesheet" />
-	
+	<link href = "https://codepen.io/chriddyp/pen/bWLwgP.css" rel = "stylesheet" />
 
 	
 	
@@ -24,7 +24,7 @@
 	<hr style = "height:2px; border-width:0; color: blue; background-color: blue">
 	<section id = "introduction">
 		
-	<h2 style = "text-align: center; font-family: Arial; font-weight: bold">Introduction</h2>
+	<h2 style = "text-align: center">Introduction</h2>
   <p>Insert Introduction</p>
     </section>
 	<hr style = "height:2px; border-width:0; color: blue; background-color: blue">
@@ -32,7 +32,7 @@
 		<section id = "method" >
     
     
-    <h2 style = "text-align: center; font-family: Arial; font-weight: bold">Methods</h2>
+    <h2 style = "text-align: center">Methods</h2>
     
     <p>Insert Methods</p>
     
@@ -47,7 +47,7 @@
     
     
     
-    <h2 style = "text-align: center; font-family: Arial; font-weight: bold">Resulting Application</h2>
+    <h2 style = "text-align: center">Resulting Application</h2>
 	<div align = "left" style = "height: 100%; width: 40%; float: left;">
     <iframe id = "app" src = "http://127.0.0.1:8050/" style = "
 	
@@ -56,9 +56,9 @@
 	</iframe>
 	</div>
 	<div style = "height: 100%; width: 57%; float: right;">
-		<h3 style = "font-family: Arial;">Visualization and Comparison</h3>
+		<h5>Visualization and Comparison</h3>
 		<script>
-			var dataset = {"act": [], "rm": [], "ti": [], "occupants": [], "masks": [], "ir": [], "num": []}
+			var dataset = {"act": [], "rm": [], "ti": [], "occupants": [], "masks": [], "vav": [], "ir": [], "num": []}
 
 			var comnumber = 0
 
@@ -72,7 +72,7 @@
 				dataset.occupants.push(data.occupants)
 				dataset.masks.push(data.masks)
 				
-				dataset.ir.push(data.ir)
+				dataset.ir.push(data.ir); dataset.vav.push(data.vav)
 	
 				comnumber = comnumber + 1
 				dataset.num.push(comnumber)
@@ -116,14 +116,15 @@
 						ks = "Without Masks"
 					}
 
-					return "Trial: " + num 
+					return "Trial " + num 
 					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
 
-					+ "<br />" + "Activity: " + (dataset.act[num - 1])
+					+ "<br />" + "VAV Level: " + (dataset.vav[num - 1])
 
-					+ "<br />" + "Time: " + (dataset.ti[num - 1])
+					+ "<br />" + "Time: " + (dataset.ti[num - 1]) + " minutes"
 					+ "<br />" + "Occupancy: " + (dataset.occupants[num - 1])
 
+					+ "<br />" + "Activity: " + (dataset.act[num - 1])
 					+ "<br />" + ks
 					+ "<br />" + "Estimated Infection Risks: " + (this.y) + "%"
 				}
@@ -141,6 +142,7 @@
 				data: dataset.ir
 			
 			}],
+
 		})
 
 			}, false);
@@ -151,6 +153,7 @@
 	</div>
     </section>
     
+	
 	
 	
 	
