@@ -9,7 +9,7 @@ To see our original project Github repository, visit: https://github.com/nichkho
 
 To see our live website, visit: https://hinanawits.github.io/DSC-180B-Presentation-Website/
 
-To use our original infection estimator application (working prototype), visit: https://infection-risk-app.herokuapp.com/
+To use our original infection estimator application (working prototype), visit: https://infection-risk-app.herokuapp.com/ Note visualization doesn't work in it. 
 
 
 
