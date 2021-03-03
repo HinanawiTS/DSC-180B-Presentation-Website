@@ -34,8 +34,76 @@
     
     <h2 style = "text-align: center">Methods</h2>
     
-    <p>Insert Methods</p>
+    <p>To calculate the risk of airborne infection in a given room the emission rate of quanta is needed. 
+		A quantum is defined as the viral load i.e. the dose of contaminated airborne droplet nuclei required to cause infection in 63% of persons. 
+		The emission rate of quanta is calculated with the following formula from 
+		<a href = "https://www.sciencedirect.com/science/article/pii/S0160412020312800?via%3Dihub">
+			Morawska et al. 2020 </a>: 
+	</p> 
+	<center><img src = "01.jpg" width = 500 height = 50 ></center>		
+
+
+
+
+
+
+	<p>
+		Where <b>Ni</b> is the <b>droplet concentration</b> by diameter. These droplet concentrations were taken from 
+		<a href = "https://www.sciencedirect.com/science/article/pii/S0021850208002036?via%3Dihub"> Morawska et al. 2009. </a>
+	</p>
     
+	<p>
+		<b>Cv</b> corresponds to the <b>viral load in the sputum</b> (i.e. infectious mucus) of the infected person. 
+		The viral load in the sputum of an infected person varies and is dependent on the stage of infection 
+		so for this estimator we will choose a large viral load of <b>1e9 RNA copies per milliliter </b>to simulate the worst case scenario for infection spread 
+		[based on <a href = "https://www.journalofinfection.com/article/S0163-4453(20)30449-7/fulltext"> Walsh et al. 2020 </a>]. 
+	</p>
+	<p>
+
+
+
+
+
+		<b>IR</b> (Inhalation Rate) the product of breathing rate and tidal volume, expressed in <b>cubic meters per hour</b>. 
+		IR is dependent on the activity of the infected subject. We chose IR values from  
+		<a href = "https://ww2.arb.ca.gov/sites/default/files/classic//research/apr/past/a033-205.pdf">Adams 1993 </a>.
+	</p>
+
+	<p>
+		<b>To calculate the concentration of quanta over time </b>we are using the following equation based on 
+		
+		<a href = "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2627642/">Gammaitoni and Nucci's 1997 paper</a>: 
+
+	</p>
+	<center> <img src = "02.jpg" width = 500 height = 68> </center>
+
+	<p>
+		<b>IVRR</b> (hr−1) represents the infectious virus removal rate in the room. 
+		The IVRR is the sum of three parameters: the <b>air change per hour (ACH)</b> via ventilation, 
+		the <b>particle deposition</b> on surfaces via gravitational settling which is 0.63 according to 
+		
+		<a href = "https://www.nejm.org/doi/10.1056/NEJMc2004973">Doremalen et al. 2020</a>, 
+		and the <b>viral inactivation rate</b> which is 0.24 per hour according to 
+		<a href = "https://www.sciencedirect.com/science/article/abs/pii/S1296207418305922?via%3Dihub">Chatoutsidou and Lazaridis, 2019</a>. 
+
+	</p>
+
+	<p>
+		<b>n0</b> represents the initial number of quanta in the space, we presume there is no initial quanta, which means <b>n0 = 0</b>. 
+	</p>
+
+	<p>
+		<b>I</b> is the number of infected people. 
+	</p>
+	<p>
+		<b>V</b> is the volume of the indoor environment considered. 
+	</p>
+	<p>
+		After collecting all information above, we can calculate the <b>estimated infection risk R</b> using the formula: 
+	</p>
+
+	<center> <img src = "122.jpg" width = 500 height = 200> </center>
+
     </section>
     </section>
  	
@@ -55,9 +123,13 @@
 	height: 100vh;" sandbox = "allow-scripts allow-same-origin"> 
 	</iframe>
 	</div>
-	<div style = "height: 100%; width: 57%; float: right;">
+	<div style = "height: 100vh; width: 57%; float: right;">
 		<h5>Visualization and Comparison</h3>
 		<script>
+
+
+			document.body.style.zoom = 1.5
+
 			var dataset = {"act": [], "rm": [], "ti": [], "occupants": [], "masks": [], "vav": [], "ir": [], "num": []}
 
 			var comnumber = 0
