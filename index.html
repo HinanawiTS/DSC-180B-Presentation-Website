@@ -124,15 +124,15 @@
 	</iframe>
 	</div>
 	<div style = "height: 100vh; width: 57%; float: right;">
-		<h5>Visualization and Comparison</h3>
+		<h5>Visualization and Comparison</h5>
 		<script>
 
 
 			document.body.style.zoom = 1.5
 
-			var dataset = {"act": [], "rm": [], "ti": [], "occupants": [], "masks": [], "vav": [], "ir": [], "num": []}
+			var dataset = {"act": [], "building": [], "rm": [], "ti": [], "occupants": [], "masks": [], "vav": [], "air": [], "ir": [], "num": []}
 
-			var comnumber = 0
+			var comnumber = 1; var deleted = 0; 
 
 			window.addEventListener("message", (event) => {
 				data = JSON.parse(event.data.replace(/'/g,"\""))
@@ -146,8 +146,10 @@
 				
 				dataset.ir.push(data.ir); dataset.vav.push(data.vav)
 	
+				
+				dataset.building.push(data.building)
+				dataset.num.push(comnumber); dataset.air.push(data.air_purifier)
 				comnumber = comnumber + 1
-				dataset.num.push(comnumber)
 				stack = new Highcharts.chart('fs', {
 			chart: {
 				type: 'column',
@@ -157,7 +159,7 @@
 				text: 'Selected Infection Risks'
 			},				
 			xAxis: {
-				categories: dataset.num, 
+				categories: dataset.num, min: 0, 
 				title: {
 
 					text: "Number of Trial"
@@ -189,8 +191,111 @@
 					}
 
 					return "Trial " + num 
-					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
 
+					+ "<br />" + "Building: " + (dataset.building[num - 1])
+					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
+					+ "<br />" + "VAV Level: " + (dataset.vav[num - 1]) + "cfm"
+					+ "<br />" + "Air Purifier: " + (dataset.air[num - 1]) + "cfm" 
+					+ "<br />" + "Time: " + (dataset.ti[num - 1]) + " minutes"
+					+ "<br />" + "Occupancy: " + (dataset.occupants[num - 1])
+
+					+ "<br />" + "Activity: " + (dataset.act[num - 1])
+					+ "<br />" + ks
+					+ "<br />" + "Estimated Infection Risks: " + (this.y) + "%"
+				}
+    		},
+			legend: {
+				reversed: true
+			},
+			plotOptions: {
+				series: {
+				}
+			},
+			series: [{
+				name: 'numbers',
+	
+				data: dataset.ir
+			
+			}],
+
+		})
+			}, false); 	
+			
+
+
+
+		function remove_trail() {
+			numbers = document.getElementById("remove").value.toString().split(",")
+			
+			for (i = 0; i < numbers.length; i++) {
+				trial = parseInt(numbers[i]); 
+				for (j = 0; j < dataset.num.length; j++) {
+					if (dataset.num[j] == trial) {
+						dataset.act.splice(j, 1)
+						dataset.rm.splice(j, 1)
+						dataset.ti.splice(j, 1)
+						dataset.occupants.splice(j, 1)
+						dataset.masks.splice(j, 1)
+						dataset.ir.splice(j, 1)
+						dataset.num.splice(j, 1)
+						dataset.vav.splice(j, 1)
+						dataset.building.splice(j, 1); dataset.air.splice(j, 1); 
+						}
+
+				}
+				
+
+				
+				
+			}
+			stack = new Highcharts.chart('fs', {
+			chart: {
+				type: 'column',
+
+				renderTo: "fs"
+			},
+			title: {
+
+
+
+				text: 'Selected Infection Risks'
+			},				
+			xAxis: {
+				categories: dataset.num, min: 0, 
+				title: {
+
+					text: "Number of Trial"
+				}
+			},
+
+			yAxis: {
+				min: 0,
+				title: {
+					text: 'Infection Risks (%)'
+				}
+			},
+			tooltip: {
+        		formatter: function() {
+					num = this.x
+					
+					
+					
+					
+					
+					ks = ""
+					if (dataset.masks[num - 1] == 1) {
+
+						ks = "With Masks"
+
+					
+					} else {
+						ks = "Without Masks"
+					}
+
+					return "Trial " + num 
+
+					+ "<br />" + "Building: " + (dataset.building[num - 1])
+					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
 					+ "<br />" + "VAV Level: " + (dataset.vav[num - 1])
 
 					+ "<br />" + "Time: " + (dataset.ti[num - 1]) + " minutes"
@@ -217,11 +322,18 @@
 
 		})
 
-			}, false);
 
+
+	
+	}
 
 		</script>
 		<div class = "chart1" id = "fs"></div>
+		<div>
+			<p>Remove Trials (e.g: 1, 2): </p> 
+			<input type = "text" id = "remove"> 
+			<button onclick = "remove_trail()" style = "margin: 17">Remove Inputted Trials</button>
+		</div>
 	</div>
     </section>
     
