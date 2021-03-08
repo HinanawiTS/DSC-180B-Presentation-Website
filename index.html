@@ -282,28 +282,33 @@
 					
 					
 					
-					ks = ""
-					if (dataset.masks[num - 1] == 1) {
+					for (i = 0; i < dataset.num.length; i++) {
+						if (dataset.num[i] == num) {
+							if (dataset.masks[i] == 1) {
 
-						ks = "With Masks"
+								ks = "With Masks"
 
-					
-					} else {
-						ks = "Without Masks"
-					}
 
-					return "Trial " + num 
+							} else {
+								ks = "Without Masks"
+							
+							}
+							return "Trial " + num 
 
-					+ "<br />" + "Building: " + (dataset.building[num - 1])
-					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
-					+ "<br />" + "VAV Level: " + (dataset.vav[num - 1])
+								+ "<br />" + "Building: " + (dataset.building[i])
+								+ "<br />" + "Room: " + (dataset.rm[i]) 
+								+ "<br />" + "VAV Level: " + (dataset.vav[i])
 
-					+ "<br />" + "Time: " + (dataset.ti[num - 1]) + " minutes"
-					+ "<br />" + "Occupancy: " + (dataset.occupants[num - 1])
+								+ "<br />" + "Time: " + (dataset.ti[i]) + " minutes"
+								+ "<br />" + "Occupancy: " + (dataset.occupants[i])
 
-					+ "<br />" + "Activity: " + (dataset.act[num - 1])
-					+ "<br />" + ks
-					+ "<br />" + "Estimated Infection Risks: " + (this.y) + "%"
+								+ "<br />" + "Activity: " + (dataset.act[i])
+								+ "<br />" + ks
+								+ "<br />" + "Estimated Infection Risks: " + (this.y) + "%"
+							}
+						
+
+					}					
 				}
     		},
 			legend: {
