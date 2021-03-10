@@ -19,26 +19,29 @@
 </head>
 <body>
 	
-	<h1 style = "text-align: center; font-family: Arial; font-weight: bold">Infection Risk Estimator</h1>
+	<h1 style = "text-align: left; font-family: Arial; font-weight: bold; color: #6e779c; margin-bottom: -7px; margin-left: 20px">Airborne Infection Risk Estimator</h1>
 	
-	<hr style = "height:2px; border-width:0; color: blue; background-color: blue">
-	<section id = "introduction">
+	<h2 style = "text-align: right; font-family: Arial; font-weight: bold; color: #6e779c; margin-top: -7px; margin-bottom: -10px; margin-right: 20px">for SARS-CoV-2 (COVID 19)</h2>
+	<section id = "introduction" style = "background-color: #434e79; margin-top: -10px; margin-left: -10px; margin-right: -10px">
 		
-	<h2 style = "text-align: center">Introduction</h2>
-  <p>Insert Introduction</p>
-    </section>
-	<hr style = "height:2px; border-width:0; color: blue; background-color: blue">
-    <section>
-		<section id = "method" >
+	<div style = "margin: auto; width: 95vh; ">
+		<h3 style = "text-align: left; padding-top: 20px; color: #c5c3cf; font-weight: bold">Introduction</h3>
+		<p style = "text-align: left; margin-top: -10px; color: #c5c3cf; font-weight: bold">A Powerful Calculator for Everyone</p>
+	</div>
+    
+	
+    
+		<div id = "method" style = "margin: auto; width: 95vh; ">
     
     
-    <details><summary>Methods</summary><h2 style = "text-align: center">Methods</h2>
+    <details style = "padding-bottom: 10px"><summary style = "text-align: left; color: #c5c3cf; font-weight: bold">How it Works</summary><h2 style = "text-align: left; color: #c5c3cf">Methods</h2>
     
-    <p>To calculate the risk of airborne infection in a given room the emission rate of quanta is needed. 
+    <p style = "text-align: left; color: #c5c3cf">To calculate the risk of airborne infection in a given room the emission rate of quanta is needed. 
 		A quantum is defined as the viral load i.e. the dose of contaminated airborne droplet nuclei required to cause infection in 63% of persons. 
 		The emission rate of quanta is calculated with the following formula from 
 		<a href = "https://www.sciencedirect.com/science/article/pii/S0160412020312800?via%3Dihub">
 			Morawska et al. 2020 </a>: 
+
 	</p> 
 	<center><img src = "01.jpg" width = 500 height = 50 ></center>		
 
@@ -47,18 +50,18 @@
 
 
 
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
 		Where <b>Ni</b> is the <b>droplet concentration</b> by diameter. These droplet concentrations were taken from 
 		<a href = "https://www.sciencedirect.com/science/article/pii/S0021850208002036?via%3Dihub"> Morawska et al. 2009. </a>
 	</p>
     
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
 		<b>Cv</b> corresponds to the <b>viral load in the sputum</b> (i.e. infectious mucus) of the infected person. 
 		The viral load in the sputum of an infected person varies and is dependent on the stage of infection 
 		so for this estimator we will choose a large viral load of <b>1e9 RNA copies per milliliter </b>to simulate the worst case scenario for infection spread 
 		[based on <a href = "https://www.journalofinfection.com/article/S0163-4453(20)30449-7/fulltext"> Walsh et al. 2020 </a>]. 
 	</p>
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
 
 
 
@@ -69,15 +72,16 @@
 		<a href = "https://ww2.arb.ca.gov/sites/default/files/classic//research/apr/past/a033-205.pdf">Adams 1993 </a>.
 	</p>
 
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
 		<b>To calculate the concentration of quanta over time </b>we are using the following equation based on 
 		
 		<a href = "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2627642/">Gammaitoni and Nucci's 1997 paper</a>: 
 
 	</p>
-	<center> <img src = "02.jpg" width = 500 height = 68> </center>
+	<center> <img src = "00.jpg" width = 570 height = 59> </center>
 
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
+
 		<b>IVRR</b> (hr−1) represents the infectious virus removal rate in the room. 
 		The IVRR is the sum of three parameters: the <b>air change per hour (ACH)</b> via ventilation, 
 		the <b>particle deposition</b> on surfaces via gravitational settling which is 0.63 according to 
@@ -88,34 +92,164 @@
 
 	</p>
 
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
 		<b>n0</b> represents the initial number of quanta in the space, we presume there is no initial quanta, which means <b>n0 = 0</b>. 
 	</p>
 
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
 		<b>I</b> is the number of infected people. 
 	</p>
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
 		<b>V</b> is the volume of the indoor environment considered. 
 	</p>
-	<p>
+	<p style = "text-align: left; color: #c5c3cf">
+
 		After collecting all information above, we can calculate the <b>estimated infection risk R</b> using the formula: 
 	</p>
 
 	<center> <img src = "122.jpg" width = 500 height = 200> </center>
 
-    </section></details>
+	</div></details>
+
+
+	<div style = "margin: auto; width: 95vh; padding-bottom: 10px; overflow: auto">
+	
+		<details>
+			<summary style = "text-align: left; color: #c5c3cf; font-weight: bold">Important Assumptions</summary>
+
+
+			<p style = "text-align: left; color: #c5c3cf; margin-top: 10px">
+				These are assumptions we used in calculation. They are selected based on our researches. You can modify them by uploading your custom
+				
+				
+				
+				
+				<a href = "assumptions.py" download>Assumptions files (click to download)</a> in the "Modify Assumptions". 
+				You can modify the downloaded assumption file using Notepad. 
+			</p>					
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Viral Load in the Sputum (CV)</b>:  Viral Load in the Sputum, assigned to be <b>1e9</b> based on 
+				<a href = "https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6924.2010.01427.x">Turu Watanabe</a>. 
+			</p>
+
+
+
+
+
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Conversion Factor (CI)</b>:  Quanta per RNA copy, assigned to be <b>0.02</b> based on 
+				<a href = "https://doi.org/10.1186/s13054-020-02893-8">Xia Yu</a>. 
+			</p>
+
+
+
+
+
+
+
+
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Inhalation Rate (IR)</b>: Inhalation rate of quanta, based on activity, it's <b>3.3</b> for heavy exercise, 
+				<b>2.35</b> for moderate exercise, <b>1.38</b> for light exercise, <b>0.49</b> for sitting, <b>0.54</b> for standing. Based on  
+				<a href = "https://doi.org/10.1186/s13054-020-02893-8">Air Resources Board Research Division</a>. 
+			</p>
+
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Deposition Rate of Infectious Particle</b>:  <b>0.24</b> based on 
+				<a href = "https://doi.org/10.1016/j.culher.2019.02.017">Sofia Eirini Chatoutsidou</a>. 
+			</p>
+
+
+
+
+
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Inactivation Rate of Infectious Particle</b>:  <b>0.63</b> based on 
+				<a href = "https://doi.org/10.1056/nejmc2004973">The New England Journal of Medicine</a>. 
+			</p>
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Initial Quanta</b>:  Initial Quanta in the environment is <b>0</b>. 
+			</p>
+
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Passive Ventilation Rate</b>:  <b>0.35</b> 
+			</p>
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Droplet Concetrations</b>: The concetration of droplet emitted by people varies a lot for different activities. Based on  
+				<a href = "https://doi.org/10.1016/j.jaerosci.2008.11.002">L. Morawska</a>, they are: {".8μm": 0.4935,"1.8μm": 0.1035, "3.5μm": 0.073, "5.5μm": 0.035} for speaking, 
+                            {".8μm": 0.236, "1.8μm": 0.068, "3.5μm": 0.007, "5.5μm": 0.011} for counting, 
+                            {".8μm": 0.110, "1.8μm": 0.014, "3.5μm": 0.004, "5.5μm": 0.002} for whispering,
+                            {".8μm": 0.751, "1.8μm": 0.139, "3.5μm": 0.139, "5.5μm": 0.059} for singing,
+                            {".8μm": 0.084, "1.8μm": 0.009, "3.5μm": 0.003, "5.5μm": 0.002}} for breathing, 
+			</p>
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Tidal Volume</b>: varies by Droplet Size, it's <b>0.26808257310632905</b> for 0.8 micrometer droplet, 
+				<b>3.053628059289279</b> for 1.8 micrometer droplet, <b>22.44929750377706</b> for 3.5 micrometer droplet, 
+				and <b>87.11374629016697</b> for 5.5 micrometer droplet. Based on  
+				<a href = "https://doi.org/10.1016/j.jaerosci.2008.11.002">L. Morawska</a>. 
+			</p>
+
+
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Masks Efficiency</b>: The effectiveness of masks (normal surgical masks) varies based on the size of droplet, it's <b>20%</b> for 0.8 micrometer droplet, 
+				<b>40%</b> for 1.8 micrometer droplet, <b>70%</b> for 3.5 micrometer droplet, <b>80%</b> for 5.5 micrometer droplet. Based on  
+				<a href = "https://doi.org/10.1186/s13054-020-02893-8">Tara Oberg</a>. 
+			</p>
+		</details>
+	</div>
+	
+	<div style = "margin: auto; width: 95vh; padding-bottom: 10px; overflow: auto">
+
+		<details><summary style = "text-align: left; color: #c5c3cf; font-weight: bold">External Links</summary>
+		<div style = "float: left">
+
+
+		<figure>
+		<a href = "https://github.com/nichkho/Infection-Risk-App"><img src = "fs.png" style = "margin: auto; width: 50%; padding-left: 10px"></a>
+		<figcaption><a href = "https://github.com/nichkho/Infection-Risk-App">Project Report</a></figcaption>
+		</figure>
+		</div>
+		
+		<div style = "float: left">
+
+
+			<figure>
+			<a href = "https://github.com/nichkho/Infection-Risk-App"><img src = "github.png" style = "margin: auto; width: 50%; padding-left: 10px"></a>
+			<figcaption><a href = "https://github.com/nichkho/Infection-Risk-App">Project Github</a></figcaption>
+			</figure>
+		</div>
+		
+		<div style = "float: left;">
+
+
+			<figure>
+			<a href = "https://github.com/HinanawiTS/DSC-180B-Presentation-Website"><img src = "fsfs.png" style = "margin: auto; width: 50%; padding-left: 10px"></a> 
+			<figcaption><a href = "https://github.com/HinanawiTS/DSC-180B-Presentation-Website">Website Github</a></figcaption>
+			</figure>
+		</div>
+		
+	
+		</details>
+	</div>
     </section>
  	
-	<hr style = "height:2px; border-width:0; color: blue; background-color: blue">
+	
     <section>
     
-	<section id = "Website" >
+	<section id = "Website" style = "padding-top: 10px; margin-left: 20px">
     
     
     
     
-    <h2 style = "text-align: center">Resulting Application</h2>
+    
+	<h2 style = "text-align: left; font-family: Arial; font-weight: bold; color: #6e779c; margin-top: -7px;">Resulting Application</h2>
 	<div align = "left" style = "height: 100%; width: 40%; float: left;">
     <iframe id = "app" src = "https://infection-risk-app.herokuapp.com/" style = "
 	
@@ -124,7 +258,8 @@
 	</iframe>
 	</div>
 	<div style = "height: 100vh; width: 57%; float: right;">
-		<h5>Visualization and Comparison</h5>
+
+		<h5 style = "text-align: left; font-family: Arial; font-weight: bold; color: #6e779c; margin-left: 20px">Visualization and Comparison</h5>
 		<script>
 
 
@@ -156,7 +291,7 @@
 				renderTo: "fs"
 			},
 			title: {
-				text: 'Selected Infection Risks'
+				text: 'Selected Cases'
 			},				
 			xAxis: {
 				categories: dataset.num, min: 0, 
@@ -194,8 +329,10 @@
 
 					+ "<br />" + "Building: " + (dataset.building[num - 1])
 					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
-					+ "<br />" + "VAV Level: " + (dataset.vav[num - 1]) + "cfm"
-					+ "<br />" + "Air Purifier: " + (dataset.air[num - 1]) + "cfm" 
+					+ "<br />" + "VAV Level: " + (dataset.vav[num - 1]) + " cfm"
+					+ "<br />" + "Air Purifier: " + (dataset.air[num - 1]) + " cfm" 
+
+
 					+ "<br />" + "Time: " + (dataset.ti[num - 1]) + " minutes"
 					+ "<br />" + "Occupancy: " + (dataset.occupants[num - 1])
 
@@ -212,7 +349,7 @@
 				}
 			},
 			series: [{
-				name: 'numbers',
+				name: 'cases numbers',
 	
 				data: dataset.ir
 			
@@ -258,7 +395,7 @@
 
 
 
-				text: 'Selected Infection Risks'
+				text: 'Selected Cases'
 			},				
 			xAxis: {
 				categories: dataset.num, min: 0, 
@@ -297,8 +434,8 @@
 
 								+ "<br />" + "Building: " + (dataset.building[i])
 								+ "<br />" + "Room: " + (dataset.rm[i]) 
-								+ "<br />" + "VAV Level: " + (dataset.vav[i])
-
+								+ "<br />" + "VAV Level: " + (dataset.vav[i]) + " cfm"
+								+ "<br />" + "Air Purifier: " + (dataset.air[i]) + " cfm" 
 								+ "<br />" + "Time: " + (dataset.ti[i]) + " minutes"
 								+ "<br />" + "Occupancy: " + (dataset.occupants[i])
 
@@ -319,7 +456,7 @@
 				}
 			},
 			series: [{
-				name: 'numbers',
+				name: 'cases numbers',
 	
 				data: dataset.ir
 			
@@ -333,10 +470,14 @@
 	}
 
 		</script>
-		<div class = "chart1" id = "fs"></div>
+		<div class = "chart1" id = "fs" style = "height: 57vh;"></div>
+
 		<div>
-			<p>Remove Trials (e.g: 1, 2): </p> 
+			<p style = "text-align: left; font-family: Arial; color: #6e779c">Remove Trials (e.g: 1, 2): </p> 
 			<input type = "text" id = "remove"> 
+
+
+
 			<button onclick = "remove_trail()" style = "margin: 17">Remove Inputted Trials</button>
 		</div>
 	</div>
