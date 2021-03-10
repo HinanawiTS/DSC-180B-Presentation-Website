@@ -22,16 +22,55 @@
 	<h1 style = "text-align: left; font-family: Arial; font-weight: bold; color: #6e779c; margin-bottom: -7px; margin-left: 27px">Airborne Infection Risk Estimator</h1>
 	
 	<h2 style = "text-align: right; font-family: Arial; font-weight: bold; color: #6e779c; margin-top: -7px; margin-bottom: -10px; margin-right: 27px">for SARS-CoV-2 (COVID 19)</h2>
-	<section id = "introduction" style = "background-color: #434e79; margin-top: -10px; margin-left: -10px; margin-right: -10px">
+	<section id = "introduction" style = "background-color: #434e79; margin-top: -10px; margin-left: -10px; margin-right: -10px; padding-bottom: 10px">
 		
 	<div style = "margin: auto; width: 70vh; ">
 		<h3 style = "text-align: left; padding-top: 20px; color: #c5c3cf; font-weight: bold">Introduction</h3>
-		<p style = "text-align: left; margin-top: -10px; color: #c5c3cf; font-weight: bold">A Powerful Calculator for Everyone </p>
+		<p style = "text-align: left; margin-top: -10px; color: #c5c3cf; font-weight: bold">A Powerful Calculator for Everyone </p> 
+		<p style = "text-align: left; margin-top: 1px; color: #c5c3cf">Our calculator features great extensbility while maintaining the ease of use. Estimations are made based 
+		on solid researches, normal users can easily use default settings to get decent estimations, while advanced users can import their custom rooms and modify assumptions 
+		based on the situation in their own regions. We also provide an interactive visualization for convenient comparison between cases. </p>
 	</div>
     
 	
     
-		<div id = "method" style = "margin: auto; width: 70vh; ">
+	<div style = "margin: auto; width: 70vh; ">
+		<details style = "padding-bottom: 10px">
+			<summary style = "text-align: left; color: #c5c3cf; font-weight: bold">How to Use</summary>
+			<p style = "text-align: left; color: #c5c3cf; font-weight: bold; padding-top: 10px">Quick Estimation</p>
+			<p style = "text-align: left; color: #c5c3cf">
+				To get estimation, please first select the target building and room, then select or input your custom VAV <a href = "https://en.wikipedia.org/wiki/Variable_air_volume">(Variable Air Volume)</a>, 
+				the ASHRAE Recommended Minimum option stands for minimum VAV recommended by The American Society of Heating, Refrigerating and Air-Conditioning Engineers. 
+
+			
+				If you use air purifier, you can input its cfm, which adds additional airflows to the environment. Input other informations, click "Go" and you can have your estimation. <p>
+				
+				
+				
+			<p style = "text-align: left; color: #c5c3cf; font-weight: 10px; font-weight: bold">Visualization</p> 
+			<p style = "text-align: left; color: #c5c3cf">
+			After you input all information and receive the estimation, click "Add to Visualization" will add the 
+			case to the visualization, move the cursor to the columns you will see the information of the event. You can remove events from visualization by inputing 
+			their cases numbers (e.g: 1, 2 means cases 1 and 2) and click "Remove Inputted Events". </p>
+			<p style = "text-align: left; color: #c5c3cf; font-weight: 10px; font-weight: bold">Advanced Modification</p>
+			<p style = "text-align: left; color: #c5c3cf">
+				To add custom rooms, click "Add Custom Rooms" and upload files containing your custom rooms using the given format 
+				<a href = "rm1.csv">(click to download sample files)</a>. Please make sure all information inputted are valid, all information should be numbers except names of building and rooms. 
+			</p>
+			<p style = "text-align: left; color: #c5c3cf">
+				To modify assumptions, please first read the "Important Assumptions" to understand the assumptions we made and their reasons, then modify the assumptions 
+
+
+
+
+
+				accordingly based on your evaluations. All modifications are recorded immediately after input. Please make sure all inputs are valid. 
+			
+			</p>
+		</details>
+
+	</div>
+	<div id = "method" style = "margin: auto; width: 70vh; ">
     
     
     <details style = "padding-bottom: 10px"><summary style = "text-align: left; color: #c5c3cf; font-weight: bold">How it Works</summary><h2 style = "text-align: left; color: #c5c3cf">Methods</h2>
@@ -119,14 +158,20 @@
 
 
 			<p style = "text-align: left; color: #c5c3cf; margin-top: 10px">
-				These are assumptions we used in calculation. They are selected based on our researches. You can modify them by uploading your custom
+				These are assumptions we used in calculation. They are selected based on our researches, you can modify them in 
 				
 				
 				
 				
-				<a href = "assumptions.py" download>Assumptions files (click to download)</a> in the "Modify Assumptions". 
-				You can modify the downloaded assumption file using Notepad. 
+				
+				"Modify Assumptions". 
 			</p>					
+			
+			<p style = "text-align: left; color: #c5c3cf">
+				<b>Infection Rate</b>: <b>0.0075</b>, calculated by number of positive cases / number of tested students and employees, based on 
+				<a href = "https://returntolearn.ucsd.edu/dashboard/index.html">Return to Learn</a> in UC SanDiego. If you are not estimating infection risks in UC SanDiego, 
+				you should modify this using the data in your own region. 
+			</p>
 			<p style = "text-align: left; color: #c5c3cf">
 				<b>Viral Load in the Sputum (CV)</b>:  Viral Load in the Sputum, assigned to be <b>1e9</b> based on 
 				<a href = "https://onlinelibrary.wiley.com/doi/full/10.1111/j.1539-6924.2010.01427.x">Turu Watanabe</a>. 
@@ -167,6 +212,8 @@
 
 
 
+			
+			
 			<p style = "text-align: left; color: #c5c3cf">
 				<b>Inactivation Rate of Infectious Particle</b>:  <b>0.63</b> based on 
 				<a href = "https://doi.org/10.1056/nejmc2004973">The New England Journal of Medicine</a>. 
@@ -241,15 +288,15 @@
     </section>
  	
 	
-    <section>
     
+	<section>  
 	<section id = "Website" style = "padding-top: 10px; margin-left: 20px">
     
     
     
     
     
-	<h2 style = "text-align: left; font-family: Arial; font-weight: bold; color: #6e779c; margin-top: -7px; margin-left: 10px">Resulting Application</h2>
+	<h2 style = "text-align: left; font-family: Arial; font-weight: bold; color: #6e779c; margin-left: 10px">Resulting Application</h2>
 	<div align = "left" style = "height: 100%; width: 40%; float: left;">
     <iframe id = "app" src = "https://infection-risk-app.herokuapp.com/" style = "
 	
@@ -298,7 +345,7 @@
 				categories: dataset.num, min: 0, 
 				title: {
 
-					text: "Number of Trial"
+					text: "Number of Event"
 				}
 			},
 
@@ -326,7 +373,7 @@
 						ks = "Without Masks"
 					}
 
-					return "Trial " + num 
+					return "Event " + num 
 
 					+ "<br />" + "Building: " + (dataset.building[num - 1])
 					+ "<br />" + "Room: " + (dataset.rm[num - 1]) 
@@ -350,7 +397,7 @@
 				}
 			},
 			series: [{
-				name: 'cases numbers',
+				name: 'Event',
 	
 				data: dataset.ir
 			
@@ -402,7 +449,7 @@
 				categories: dataset.num, min: 0, 
 				title: {
 
-					text: "Number of Trial"
+					text: "Number of Event"
 				}
 			},
 
@@ -431,7 +478,7 @@
 								ks = "Without Masks"
 							
 							}
-							return "Trial " + num 
+							return "Event " + num 
 
 								+ "<br />" + "Building: " + (dataset.building[i])
 								+ "<br />" + "Room: " + (dataset.rm[i]) 
@@ -457,7 +504,7 @@
 				}
 			},
 			series: [{
-				name: 'cases numbers',
+				name: 'Event',
 	
 				data: dataset.ir
 			
@@ -471,16 +518,16 @@
 	}
 
 		</script>
-		
+
 		<div class = "chart1" id = "fs" style = "height: 37vh;"></div>
 
 		<div>
-			<p style = "text-align: left; font-family: Arial; color: #6e779c">Remove Trials (e.g: 1, 2): </p> 
+			<p style = "text-align: left; font-family: Arial; color: #6e779c">Remove Events (e.g: 1, 2): </p> 
 			<input type = "text" id = "remove"> 
 
 
 
-			<button onclick = "remove_trail()" style = "margin: 17">Remove Inputted Trials</button>
+			<button onclick = "remove_trail()" style = "margin: 17">Remove Inputted Events</button>
 		</div>
 	</div>
     </section>
