@@ -17,7 +17,7 @@
 	<script src="https://code.highcharts.com/highcharts.js"></script>
 	
 </head>
-<body style = "zoom: 200%">
+<body style = "zoom: 200%; width: 100%">
 	 
 	<h1 style = "text-align: left; font-family: Arial; font-weight: bold; color: #6e779c; margin-bottom: -7px; margin-left: 27px">Airborne Infection Risk Estimator</h1>
 	
@@ -55,7 +55,7 @@
 			<p style = "text-align: left; color: #c5c3cf; font-weight: 10px; font-weight: bold">Advanced Modification</p>
 			<p style = "text-align: left; color: #c5c3cf">
 				To add custom rooms, click "Add Custom Rooms" and upload files containing your custom rooms using the given format 
-				<a href = "rm1.csv">(click to download sample files)</a>. Please make sure all information inputted are valid, all information should be numbers except names of building and rooms. 
+				<a href = "custom_rooms.csv" download>(click to download sample files for custom rooms)</a>. Please make sure all information inputted are valid, all information should be numbers except names of building and rooms. 
 			</p>
 			<p style = "text-align: left; color: #c5c3cf">
 				To modify assumptions, please first read the "Important Assumptions" to understand the assumptions we made and their reasons, then modify the assumptions 
@@ -64,7 +64,7 @@
 
 
 
-				accordingly based on your evaluations. All modifications are recorded immediately after input. Please make sure all inputs are valid. 
+				accordingly based on your evaluations. <a href = "assumptions.txt" download>(click to download assumptions files)</a> All modifications are recorded immediately after input. Please make sure all inputs are valid. 
 			
 			</p>
 		</details>
@@ -228,9 +228,6 @@
 			</p>
 
 
-			<p style = "text-align: left; color: #c5c3cf">
-				<b>Passive Ventilation Rate</b>:  <b>0.35</b> 
-			</p>
 
 			<p style = "text-align: left; color: #c5c3cf">
 				<b>Droplet Concetrations</b>: The concetration of droplet emitted by people varies a lot for different activities. Based on  
@@ -344,14 +341,36 @@
 			},
 			title: {
 				text: 'Selected Cases'
-			},				
+
+			},		
+
 			xAxis: {
+
+				
+				
 				categories: dataset.num, min: 0, 
 				title: {
 
-					text: "Number of Event"
+					text: ""
+				}, 
+				labels: {
+
+					formatter: function() {
+						num = this.value 
+
+						for (i = 0; i < dataset.num.length; i++) {
+						if (dataset.num[i] == num) { 
+
+						return "Event " + num 
+
+					+ "<br />" + "Building: " + (dataset.building[i])
+					+ "<br />" + "Room: " + (dataset.rm[i]) 
+					+ "<br />" + "Total VAV: " + (dataset.vav[i] + dataset.air[i])
+						}
+					}
 				}
-			},
+			}
+			}, 
 
 			yAxis: {
 				min: 0,
@@ -449,14 +468,43 @@
 
 				text: 'Selected Cases'
 			},				
-			xAxis: {
+			
+
+
+
+			
+			xAxis: {				
 				categories: dataset.num, min: 0, 
 				title: {
 
-					text: "Number of Event"
-				}
-			},
+					text: ""
+				}, 
+			
+			
+			
+			
+			
+			
+			
+			
+			
+				labels: {
+					formatter: function() {
+						num = this.value 
 
+						for (i = 0; i < dataset.num.length; i++) {
+							if (dataset.num[i] == num) { 
+
+								return "Event " + num 
+
+								+ "<br />" + "Building: " + (dataset.building[i])
+								+ "<br />" + "Room: " + (dataset.rm[i]) 
+								+ "<br />" + "Total VAV: " + (dataset.vav[i] + dataset.air[i])
+							}
+						}
+					}
+				}
+			}, 
 			yAxis: {
 				min: 0,
 				title: {
@@ -472,7 +520,7 @@
 					
 					
 					for (i = 0; i < dataset.num.length; i++) {
-						if (dataset.num[i] == num) {
+						if (dataset.num[i] == num) { 
 							if (dataset.masks[i] == 1) {
 
 								ks = "With Masks"
